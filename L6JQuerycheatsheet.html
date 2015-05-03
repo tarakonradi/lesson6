@@ -1,0 +1,100 @@
+DOCTYPE HTML
+
+<html>
+<head>
+	<title>
+
+	</title>
+</head>
+
+<body>
+<script>
+	// Create a “cheat sheet” JavaScript file that contains examples of all of the things we learned today, delineated with comments
+
+	// include my_library.js in an html file using the tags: <script>
+
+
+	// <!-- Write the source for jQuery inside of the <head></head> section of the HTML
+ // -->
+
+// You can select elements using the JavaScript console, for example: 
+$("body")
+$("p")
+$("ul li")
+
+
+$(document).ready()
+ // by putting this in your code, it ensures that your code doesn't run until the document fires a ready event. That way, even if multimedia elements aren't fully loaded, the read events will fire when the page's DOM elements are loaded
+
+ Anyonymous functions like: 
+ function() {
+ 	alert("I am anonymous!")
+ }
+can store variables like:
+var my_anon_func = function() { alert ("Har!"); }
+
+// Anonymous functions are often used in callbacks.
+
+A callback is an anonymous function supplied to another function to be run when that function is done running. 
+
+var someOtherFunction = function() {alert('hello world'); }
+
+function someRunner (anyFunction) [console.log(2=2); anyFunction(); ]
+
+someRunner (someOtherFunction);
+
+// to make sure your page is ready for jQuery, you'll need to pass it an anonymous function (a callback) to execute when the document is ready. For example:
+ $(document).ready( 
+ 	function() {
+ 		alert('The document is ready, sha!');
+ 	}
+ 	);
+
+// You can show or hide things on the page using:
+$("body").hide();
+$("body").show();
+
+// Or you can fade in or out:
+$("#section-one").fadeOut();
+$("#section-one").fadeIn();
+
+// To fade in or out over time it will be written in the parethesis using milliseconds. For example to fade out over one second:
+
+$("#section-one").fadeOut(1000);
+
+Another way to hide or show items is sliding them up or down, like this:
+
+$("#section-one").slideUp(1000); 
+// Which will fade out over one second
+$("#section-one").slideDown(4000);
+// Which will fade in over 4 seconds 
+
+// To animate with CSS we can use jQuery's animate() method. 
+$(".my-element").animate( {
+	opacity: 0.25,
+	width: 70%
+} , 2000	);
+
+// JavaScript can be fired on any HTML element. To monitor an HTML element for the click event and then fire a callback function with some code:
+
+$("ul li a").click(
+	function() {
+		alert('imclicked!');
+		}
+	);
+
+// You can use a callback for a sequence- using one animation after another:
+var animateMenu = function() {
+	$(".menu").animate ( {opacity: .5} )
+}
+$(".menu").show(animateMenu)
+ 
+// you can simplify that syntax like this:
+$(".menu").show( function(){
+	$(".menu").animate( {opacity: .5} )
+})
+
+
+</script>
+</body>
+</html>
